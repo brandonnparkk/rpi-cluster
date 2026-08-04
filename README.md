@@ -2,6 +2,10 @@
 
 A GitOps-managed homelab Kubernetes cluster (Raspberry Pi) that uses FluxCD to sync deployments from this repo, SOPS/age for secret encryption, and Cloudflare Tunnel for ingress. Currently runs a self-hosted linkding bookmark manager and a kube-prometheus-stack observability stack.
 
+## Architecture
+
+![rpi-cluster architecture](./architecture.svg)
+
 ## Tech Stack
 
 - **GitOps**: FluxCD (GitRepository + Kustomization controllers)
