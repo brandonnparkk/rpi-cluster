@@ -56,8 +56,6 @@ rpi-cluster/
 | Decision | Chose | Over | Why |
 |---|---|---|---|
 | Compute | Raspberry Pi 5 (8GB) | EC2, managed Kubernetes | Own the hardware, no recurring cost, forces hands-on control plane work |
-| Distribution | k3s | kubeadm, EKS | Single binary under 100MB, first-class ARM64, bundles containerd/CoreDNS/flannel |
-| OS | Raspberry Pi OS Lite 64-bit | Ubuntu Server 24.04 | Better Pi hardware support, ships avahi, lighter first boot |
 | GitOps engine | Flux CD | Argo CD | Smaller footprint on a constrained node, native SOPS decryption in kustomize-controller |
 | Own manifests | Kustomize overlays | Helm charts | No templating indirection over YAML I already control |
 | Third-party software | Helm via HelmRelease | Vendored or rendered manifests | Versioned and pinnable, no re-vendoring on every upstream release |
