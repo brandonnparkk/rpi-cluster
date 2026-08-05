@@ -57,14 +57,10 @@ rpi-cluster/
 |---|---|---|---|
 | Compute | Raspberry Pi 5 (8GB) | EC2, managed Kubernetes | Own the hardware, no recurring cost, forces hands-on control plane work |
 | GitOps engine | Flux CD | Argo CD | Smaller footprint on a constrained node, native SOPS decryption in kustomize-controller |
-| Own manifests | Kustomize overlays | Helm charts | No templating indirection over YAML I already control |
-| Third-party software | Helm via HelmRelease | Vendored or rendered manifests | Versioned and pinnable, no re-vendoring on every upstream release |
 | Helm controller | Flux helm-controller | k3s bundled helm-controller | Conflicting `HelmChart` CRDs; disabled k3s's via `--disable=helm-controller` |
 | Secrets | SOPS + age | Sealed Secrets, External Secrets Operator | No external store to run, decryptable locally, age avoids GPG keyring management |
 | External access | Cloudflare Tunnel | Port forwarding, Ingress + cert-manager | Outbound-only, no inbound firewall rules, no static IP, TLS at the edge |
 | Service exposure | ClusterIP | LoadBalancer, NodePort | cloudflared runs in-cluster, so nothing needs LAN or WAN reachability |
 | Monitoring | kube-prometheus-stack | Uptime Kuma, Beszel, Grafana Cloud | ServiceMonitor CRDs make scrape config declarative and GitOps-native |
-| Control plane scraping | Disabled controller-manager, scheduler, proxy, etcd monitors | Chart defaults | k3s consolidates these into one process and uses SQLite, so defaults yield dead targets and false alerts |
-| Node networking | Wired ethernet | WiFi | WiFi power management causes the node to flap NotReady |
 
 For a full writeup on trade-offs and design rationale, see the [blog post](https://bpark.dev/blog/2026-07-31-rpi-homelab/).
