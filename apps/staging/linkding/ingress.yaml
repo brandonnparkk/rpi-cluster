@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: rpi.bpark-kube.com
+    - host: rps.bpark-kube.com
       http:
         paths:
           - backend:
