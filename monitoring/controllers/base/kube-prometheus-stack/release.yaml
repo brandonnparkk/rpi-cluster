@@ -33,7 +33,7 @@ spec:
       adminPassword: brandon
       ingress:
         enabled: true
-        ingressClassName: nginx
+        ingressClassName: traefik
         hosts:
           - grs.bpark-kube.com
 
